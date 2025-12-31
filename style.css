@@ -1,0 +1,314 @@
+/* 基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* 英語はMontserrat、日本語はNoto Sansで見やすく */
+    font-family: 'Montserrat', 'Noto Sans JP', sans-serif;
+    line-height: 1.8;
+    color: #333;
+    background-color: #fafafa;
+}
+
+a {
+    text-decoration: none;
+    color: #007aff;
+    transition: opacity 0.3s;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ヘッダー */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #eee;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+header h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: #333;
+}
+
+header nav ul {
+    display: flex;
+    gap: 25px;
+}
+
+header nav ul li a {
+    color: #555;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* メインビジュアル */
+.hero {
+    background-color: #fff;
+    padding: 160px 0 100px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+    color: #333;
+}
+
+.hero p {
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 2;
+}
+
+/* セクション共通 */
+.section {
+    padding: 80px 0;
+    border-top: 1px solid #eee;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 0.1em;
+    color: #333;
+}
+
+/* About セクション */
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.about-text {
+    flex: 2;
+    min-width: 300px;
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.skills-list {
+    flex: 1;
+    min-width: 250px;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+}
+
+.skills-list h4 {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    border-bottom: 2px solid #007aff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.skills-list ul li {
+    margin-bottom: 12px;
+    padding-left: 1.2em;
+    position: relative;
+    font-weight: 500;
+    color: #555;
+}
+
+.skills-list ul li::before {
+    content: "✔";
+    color: #007aff;
+    position: absolute;
+    left: 0;
+    font-size: 0.9em;
+}
+
+/* Works セクション */
+.work-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+}
+
+.work-image-placeholder {
+    flex: 1;
+    min-width: 280px;
+    background-color: #f0f0f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 8px;
+    min-height: 300px;
+    color: #999;
+    font-weight: 600;
+    overflow: hidden;
+}
+
+.work-image-placeholder img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.work-desc {
+    flex: 1.5;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.work-desc h4 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+/* 「主な機能」の見出し */
+.feature-title {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.work-features {
+    margin: 10px 0 20px 0;
+    list-style: disc;
+    padding-left: 20px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.work-features li {
+    margin-bottom: 8px;
+}
+
+/* コード装飾 (VDOTCalculatorなどを強調) */
+code {
+    background-color: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.9em;
+    color: #d63384;
+    border: 1px solid #eee;
+}
+
+/* 技術スタックタグ */
+.tech-stack-tag {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    color: #555;
+    background-color: #eef4ff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border-left: 4px solid #007aff;
+    line-height: 1.6;
+}
+
+.status-badge {
+    display: inline-block;
+    background-color: #f2f2f2;
+    color: #555;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+/* Contact セクション */
+#contact p {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #666;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    padding: 12px 0;
+    border-radius: 30px;
+    font-weight: 600;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.twitter { background-color: #000; }
+.github { background-color: #333; }
+
+/* フッター */
+footer {
+    margin-top: 50px;
+    background-color: #fff;
+    color: #999;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.8rem;
+    border-top: 1px solid #eee;
+}
+
+/* スマホ用レスポンシブ調整 */
+@media (max-width: 768px) {
+    .hero h2 {
+        font-size: 2.2rem;
+    }
+    
+    .work-item {
+        padding: 25px;
+    }
+
+    .header-inner {
+        padding: 0 15px;
+    }
+}
