@@ -112,6 +112,7 @@ nav a {
   font-size: 0.85rem;
 }
 
+/* --- Work Items --- */
 .work-item {
   background: #fff;
   padding: 40px;
@@ -120,6 +121,7 @@ nav a {
   gap: 40px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.05);
   transition: transform .4s, box-shadow .4s;
+  margin-bottom: 40px;
 }
 
 .work-item:hover {
@@ -127,17 +129,61 @@ nav a {
   box-shadow: 0 20px 50px rgba(0,0,0,0.08);
 }
 
-.work-image {
+/* --- Carousel (Slideshow) Styles --- */
+.work-image-wrapper {
   flex: 1;
-  min-height: 280px;
-  background: #f0f2f7;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  border-radius: 10px;
-  color: #999;
+  overflow: hidden; /* はみ出し防止 */
+  position: relative;
 }
 
+.carousel-container {
+  display: flex;
+  width: 100%;
+  overflow-x: auto; /* 横スクロールを許可 */
+  scroll-snap-type: x mandatory; /* ピタッと止まる設定 */
+  scroll-behavior: smooth;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  
+  /* スクロールバーを隠す */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.carousel-img {
+  flex: 0 0 100%; /* 1枚で幅いっぱい */
+  width: 100%;
+  height: auto;
+  scroll-snap-align: center; /* 真ん中で止まる */
+  object-fit: cover;
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #ddd;
+  border-radius: 50%;
+  transition: background .3s;
+}
+
+.dot.active {
+  background: #007aff;
+}
+
+/* --- Desc --- */
 .work-desc {
   flex: 1.6;
 }
@@ -198,7 +244,6 @@ footer {
   transform: translateY(0);
 }
 
-
 .athletics-box {
   max-width: 720px;
   margin: 0 auto;
@@ -223,3 +268,17 @@ footer {
   color: #333;
 }
 
+@media (max-width: 768px) {
+  .work-item {
+    flex-direction: column;
+    padding: 25px;
+  }
+  .about-content {
+    flex-direction: column;
+  }
+  .athletics-list {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
