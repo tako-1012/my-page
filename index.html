@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Kotaro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <h1>Kotaro</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#works">Works</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-inner">
+            <h2>Running & Coding.</h2>
+            <p>情報工学を学ぶ大学生エンジニア。<br>
+            陸上で培った継続力を活かし、丁寧な開発を行います。</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section id="about" class="section">
+            <h3 class="section-title">About Me</h3>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>【プロフィール】</strong><br>
+                    地方の大学にて情報工学を専攻しています。研究室では「Pythonを用いた自律移動ロボットの制御」について研究中です。<br>
+                    個人開発ではSwiftを使ったiOSアプリ制作を行っており、生成AI（Cursor/Copilot等）を活用して、効率よくアイデアを形にすることを得意としています。</p>
+                    <br>
+                    <p><strong>【趣味・活動】</strong><br>
+                    陸上競技部で長距離（5000m）に取り組んでいます。<br>
+                    (Best: 800m 1'55" / 1500m 4'00")<br>
+                    日々の練習と同じように、開発においても目標に向けてコツコツと積み重ねる姿勢を大切にしています。</p>
+                </div>
+                <div class="skills-list">
+                    <h4>Skills</h4>
+                    <ul>
+                        <li>Swift / SwiftUI</li>
+                        <li>Python (データ処理・制御)</li>
+                        <li>Git / GitHub</li>
+                        <li>生成AI活用 (Cursorなど)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="works" class="section">
+            <h3 class="section-title">Works</h3>
+            <div class="work-item">
+                <div class="work-image-placeholder">
+                    <p>App Demo<br>(Coming Soon)</p>
+                    </div>
+                
+                <div class="work-desc">
+                    <h4>Raceaster (iOS)</h4>
+                    <p>現役長距離ランナーである私自身が、日々のトレーニングやレース管理で感じていた課題（細かいペース設計、公式タイムの扱い、VDOTに基づいたゾーン設定など）を解消するために開発したアプリです。</p>
+                    <p>実戦（トラック競技・駅伝）での「ドッグフーディング」を通じてUI/UXを磨き込み、高精度な計算ロジックと、現場でストレスなく使える操作性を両立しました。</p>
+
+                    <p class="feature-title"><strong>主な機能・技術的特徴:</strong></p>
+                    <ul class="work-features">
+                        <li><strong>VDOT計算エンジン:</strong> ダニエルズ理論に基づく近似計算ロジックを実装。<code>VDOTCalculator</code> により、EasyからRepetitionまでの各トレーニングゾーンを自動算出します。</li>
+                        <li><strong>高度なペースツール:</strong> 距離・時間・ペースの相互計算機能。<code>TimeInputNormalizer</code> による正規化処理で、直感的な数値入力を実現。</li>
+                        <li><strong>ラップ自動生成:</strong> 400mトラックやロード（1km/5km）などのプリセットに応じ、累積タイムとラップ表を瞬時に生成するアルゴリズムを実装。</li>
+                        <li><strong>SwiftDataによる永続化:</strong> <code>@Model</code> を用いた最新のデータ設計を採用。大会記録や駅伝の区間記録をリレーションシップ込みで管理。</li>
+                        <li><strong>StoreKit2 実装:</strong> <code>StoreManager</code> によるアプリ内課金の実装。プレミアム機能の権限管理や復元処理もサポートしています。</li>
+                    </ul>
+
+                    <p class="tech-stack-tag"><strong>Tech Stack:</strong> Swift, SwiftUI, SwiftData, Concurrency (async/await), Combine, StoreKit2</p>
+                    
+                    <p class="status-badge">App Store 審査準備中</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <h3 class="section-title">Contact & Links</h3>
+            <p>開発の進捗や、日々の練習日誌はXで発信しています。<br>お仕事のご依頼やご相談もお気軽にDMください。</p>
+            <div class="social-links">
+                <a href="https://twitter.com/taco_dev_taf" target="_blank" class="social-btn twitter">X (@taco_dev_taf)</a>
+                <a href="https://github.com/tako-1012" target="_blank" class="social-btn github">GitHub</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Kotaro. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
