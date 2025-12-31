@@ -139,18 +139,36 @@ nav a {
   position: relative;
 }
 
+/* カルーセル全体をスマホサイズに制限 */
 .carousel-container {
   display: flex;
   width: 100%;
-  overflow-x: auto; /* 横スクロールを許可 */
-  scroll-snap-type: x mandatory; /* ピタッと止まる設定 */
-  scroll-behavior: smooth;
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  max-width: 300px; /* ★ここが重要：スマホの幅くらいに制限 */
+  margin: 0 auto;   /* 中央寄せ */
   
-  /* スクロールバーを隠す */
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  border-radius: 12px; /* 角丸を少し大きく */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15); /* 影を調整 */
+  border: 4px solid #333; /* スマホの枠っぽく黒縁をつけるとかっこいい */
+  
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* 画像の設定 */
+.carousel-img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto;
+  scroll-snap-align: center;
+  object-fit: cover;
+  display: block; /* 余計な隙間を消す */
 }
 
 .carousel-container::-webkit-scrollbar {
