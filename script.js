@@ -1,50 +1,54 @@
-// --- フェードインアニメーション ---
-const targets = document.querySelectorAll('.fade-up');
-const observer = new IntersectionObserver(entries => {
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('is-visible');
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.2 });
-targets.forEach(t => observer.observe(t));
+}, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => observer.observe(el));
 
-// --- カルーセル（自動切り替え） ---
+// Carousel
 const carousel = document.getElementById('carousel');
-const dots = document.querySelectorAll('.dot');
-let scrollAmount = 0;
-let slideIndex = 0;
+if (carousel) {
+  const imgs = carousel.querySelectorAll('.carousel-img');
+  const dots = document.querySelectorAll('.dot');
+  let current = 0;
+  let autoInterval;
 
-function autoScroll() {
-  if (!carousel) return;
-
-  const slideWidth = carousel.clientWidth;
-  slideIndex++;
-
-  // 最後の画像の次は最初に戻る
-  if (slideIndex >= 3) {
-    slideIndex = 0;
+  function showSlide(i) {
+    imgs.forEach(img => img.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    imgs[i].classList.add('active');
+    dots[i].classList.add('active');
+    current = i;
   }
 
-  // スクロール実行
-  carousel.scrollTo({
-    left: slideWidth * slideIndex,
-    behavior: 'smooth'
+  function startAuto() {
+    autoInterval = setInterval(() => showSlide((current + 1) % imgs.length), 3500);
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      clearInterval(autoInterval);
+      showSlide(parseInt(dot.dataset.index));
+      startAuto();
+    });
   });
 
-  updateDots(slideIndex);
+  startAuto();
 }
 
-function updateDots(index) {
-  dots.forEach(dot => dot.classList.remove('active'));
-  if(dots[index]) dots[index].classList.add('active');
+// Mobile nav
+const navToggle = document.querySelector('.nav-toggle');
+const navUl = document.querySelector('nav ul');
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navUl.classList.toggle('open');
+  });
+  navUl.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navUl.classList.remove('open'));
+  });
 }
-
-// 3.5秒ごとに切り替え
-let autoSlideInterval = setInterval(autoScroll, 3500);
-
-// ユーザーが手動でスクロールしたら自動再生を一時停止する
-carousel.addEventListener('touchstart', () => {
-  clearInterval(autoSlideInterval);
-});
